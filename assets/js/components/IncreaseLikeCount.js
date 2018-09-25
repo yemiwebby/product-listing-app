@@ -14,7 +14,7 @@ class IncreaseLikeCount extends Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
 
-    async onSubmit(e) {
+    onSubmit(e) {
         e.preventDefault();
         this.state.count++;
 

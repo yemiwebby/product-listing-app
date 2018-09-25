@@ -59,7 +59,7 @@ class Products extends Component {
                     <Container>
                         <Row>
                             <Col xs="3">
-                                <ProductForm addProduct={this.addProduct()} />
+                                <ProductForm addProduct={this.addProduct} />
                             </Col>
                             <Col xl="9">
                                 <Row>

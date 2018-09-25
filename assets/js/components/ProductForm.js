@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Label, Alert } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Alert, Input } from 'reactstrap';
 import { APP } from "./util";
 import axios from 'axios';
 
@@ -66,18 +66,18 @@ class ProductForm extends Component {
         return (
             <Form onSubmit={this.submitForm}>
                 <FormGroup>
-                    <label>Title</label>
-                    <input type={'text'} name={'product'} placeholder='Enter the product name' className={'form-control'}/>
+                    <label>Product</label>
+                    <Input type={'text'} name={'product'} placeholder='Enter the product name' className={'form-control'}/>
                 </FormGroup>
 
                 <FormGroup>
                     <label>Description</label>
-                    <input type={'text'} name={'description'} placeholder='Enter product description' className={'form-control'} />
+                    <Input type={'text'} name={'description'} placeholder='Enter product description' className={'form-control'} />
                 </FormGroup>
 
                 <FormGroup>
                     <label>Price</label>
-                    <input type={'text'} name={'price'} placeholder='Price' className={'form-control'}/>
+                    <Input type={'text'} name={'price'} placeholder='Price' className={'form-control'}/>
                 </FormGroup>
 
                 <FormGroup>
