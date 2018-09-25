@@ -1,4 +1,7 @@
 {
+    "cloudinary/cloudinary_php": {
+        "version": "1.11.1"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
