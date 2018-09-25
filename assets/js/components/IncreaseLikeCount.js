@@ -8,7 +8,7 @@ class IncreaseLikeCount extends Component {
     constructor (props) {
         super(props);
         this.state = {
-            id: props.apartmentId,
+            id: props.productId,
             count: props.likeCount,
         };
         this.onSubmit = this.onSubmit.bind(this);
@@ -18,7 +18,7 @@ class IncreaseLikeCount extends Component {
         e.preventDefault();
         this.state.count++;
 
-        axios.post(`${APP.BASE_URL}/${APP.APARTMENTS_URL}/${this.state.id}/count`).then(res => {
+        axios.post(`${APP.BASE_URL}/${APP.PRODUCTS_URL}/${this.state.id}/count`).then(res => {
             this.props.likeIncrease(res.data, this.state.id)
         });
     }
