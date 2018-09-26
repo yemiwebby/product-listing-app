@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ProductForm from './ProductForm';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, Container, Button, Alert,Row, Col, Badge  } from 'reactstrap';
-import { APP } from './util'
+import { APP } from '../util'
 import Favorite from './Favorite';
 import axios from 'axios';
 

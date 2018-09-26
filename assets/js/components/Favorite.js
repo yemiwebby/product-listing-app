@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Button,Badge } from 'reactstrap'
-import { APP } from './util'
+import { APP } from '../util'
 import axios from 'axios';
 
 class Favorite extends Component {
