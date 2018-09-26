@@ -17,92 +17,118 @@ class Product
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="product", type="string", length=255)
      */
     private $product;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="description", type="string", length=255)
      */
     private $description;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(name="favorite_count", type="integer", nullable=true)
      */
-    private $likeCount;
+    private $favoriteCount;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(name="price", type="string", length=255, nullable=true)
      */
     private $price;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(name="image_url", type="string", length=255, nullable=true)
      */
     private $imageUrl;
 
-    public function getId(): ?int
+    /**
+     * @return mixed
+     */
+    public function getId()
     {
         return $this->id;
     }
 
-    public function getProduct(): ?string
+
+    /**
+     * @return mixed
+     */
+    public function getProduct()
     {
         return $this->product;
     }
 
-    public function setProduct(string $product): self
+    /**
+     * @param mixed $product
+     */
+    public function setProduct($product): void
     {
         $this->product = $product;
-
-        return $this;
     }
 
-    public function getDescription(): ?string
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
     {
         return $this->description;
     }
 
-    public function setDescription(string $description): self
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description): void
     {
         $this->description = $description;
-
-        return $this;
     }
 
-    public function getLikeCount(): ?int
+
+    /**
+     * @return mixed
+     */
+    public function getFavoriteCount()
     {
-        return $this->likeCount;
+        return $this->favoriteCount;
     }
 
-    public function setLikeCount(?int $likeCount): self
+    /**
+     * @param mixed $favoriteCount
+     */
+    public function setFavoriteCount($favoriteCount): void
     {
-        $this->likeCount = $likeCount;
-
-        return $this;
+        $this->favoriteCount = $favoriteCount;
     }
 
-    public function getPrice(): ?string
+    /**
+     * @return mixed
+     */
+    public function getPrice()
     {
         return $this->price;
     }
 
-    public function setPrice(?string $price): self
+    /**
+     * @param mixed $price
+     */
+    public function setPrice($price): void
     {
         $this->price = $price;
-
-        return $this;
     }
 
-    public function getImageUrl(): ?string
+    /**
+     * @return mixed
+     */
+    public function getImageUrl()
     {
         return $this->imageUrl;
     }
 
-    public function setImageUrl(?string $imageUrl): self
+    /**
+     * @param mixed $imageUrl
+     */
+    public function setImageUrl($imageUrl): void
     {
         $this->imageUrl = $imageUrl;
-
-        return $this;
     }
 }

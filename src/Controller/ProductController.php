@@ -70,7 +70,7 @@ class ProductController extends AbstractController
     {
         $product = new Product;
         $product->setProduct($request->get('product'));
-        $product->setLikeCount(0);
+        $product->setFavoriteCount(0);
         $product->setDescription($request->get('description'));
         $product->setPrice($request->get('price'));
         $product->setImageUrl($this->imageUploader->uploadImageToCloudinary($request->files->get('image')));
@@ -82,16 +82,16 @@ class ProductController extends AbstractController
     /**
      * @Route("/products/{id}/count", methods="POST")
      */
-    public function increaseLikeCount($id)
+    public function increaseFavoriteCount($id)
     {
         $product = $this->productRepository->find($id);
         if (! $product) {
             return new JsonResponse("Not found!", 404);
         }
-        $product->setLikeCount($product->getLikeCount() + 1);
+        $product->setFavoriteCount($product->getFavoriteCount() + 1);
         $this->updateDatabase($product);
 
-        return $this->response($product->getLikeCount());
+        return $this->response($product->getFavoriteCount());
     }
 
     /**

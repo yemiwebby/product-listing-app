@@ -24,7 +24,7 @@ class ProductRepository extends ServiceEntityRepository
             'id' => (int) $product->getId(),
             'product' =>  (string) $product->getProduct(),
             'description' => (string) $product->getDescription(),
-            'likeCount' =>  (int) $product->getLikeCount(),
+            'favoriteCount' =>  (int) $product->getFavoriteCount(),
             'price' =>  (string) $product->getPrice(),
             'image' => (string) $product->getImageUrl()
         ];

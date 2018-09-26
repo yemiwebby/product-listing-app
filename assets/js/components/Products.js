@@ -3,7 +3,7 @@ import ProductForm from './ProductForm';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, Container, Button, Alert,Row, Col, Badge  } from 'reactstrap';
 import { APP } from './util'
-import IncreaseLikeCount from './IncreaseLikeCount';
+import Favorite from './Favorite';
 import axios from 'axios';
 
 
@@ -16,11 +16,11 @@ class Products extends Component {
             isLoading: null
         };
         this.addProduct = this.addProduct.bind(this);
-        this.likeIncrease = this.likeIncrease.bind(this);
+        this.favoriteIncrease = this.favoriteIncrease.bind(this);
         this.getProducts = this.getProducts.bind(this);
     }
 
-    likeIncrease(data, id) {
+    favoriteIncrease(data, id) {
         let products = this.state.products;
         let product = products.find(product => product.id === id);
         product.count = data.count;
@@ -75,7 +75,7 @@ class Products extends Component {
                                                         <h4><Badge color="info" pill>{product.price}</Badge></h4>
                                                         <CardText>{product.description}</CardText>
 
-                                                        <IncreaseLikeCount likeIncrease={this.likeIncrease} productId={product.id} likeCount={product.likeCount}/>
+                                                        <Favorite favoriteIncrease={this.favoriteIncrease} productId={product.id} favoriteCount={product.favoriteCount}/>
                                                     </CardBody>
                                                 </Card>
                                             </Col>
