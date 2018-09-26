@@ -13,10 +13,27 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProductController extends AbstractController
 {
     protected $statusCode = 200;
+
+    /**
+     * @var EntityManagerInterface
+     */
     private $entityManager;
+
+    /**
+     * @var \App\Repository\ProductRepository|\Doctrine\Common\Persistence\ObjectRepository
+     */
     private $productRepository;
+
+    /**
+     * @var ImageUploader
+     */
     private $imageUploader;
 
+    /**
+     * ProductController constructor.
+     * @param EntityManagerInterface $entityManager
+     * @param ImageUploader $imageUploader
+     */
     public function __construct(EntityManagerInterface $entityManager, ImageUploader $imageUploader)
     {
         $this->entityManager = $entityManager;
@@ -39,7 +56,7 @@ class ProductController extends AbstractController
      * @Route("/products", name="products", methods="GET")
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function apartments()
+    public function products()
     {
         $products = $this->productRepository->modifyAllProduct();
 
@@ -49,7 +66,7 @@ class ProductController extends AbstractController
     /**
      * @Route("/products/create", methods="POST")
      */
-    public function createApartment(Request $request)
+    public function createProducts(Request $request)
     {
         $product = new Product;
         $product->setProduct($request->get('product'));
@@ -77,12 +94,19 @@ class ProductController extends AbstractController
         return $this->response($product->getLikeCount());
     }
 
-
+    /**
+     * @param $data
+     * @return JsonResponse
+     */
     function response($data) {
 
         return new JsonResponse($data, $this->statusCode);
     }
 
+    /**
+     * @param $errors
+     * @return JsonResponse
+     */
     function responseWithError($errors) {
         $errorMsg = [
             'errors' => $errors
@@ -90,6 +114,10 @@ class ProductController extends AbstractController
         return new JsonResponse($errorMsg, 422);
     }
 
+    /**
+     * @param Request $request
+     * @return null|Request
+     */
     function acceptJsonPayload(Request $request)
     {
         $data = json_decode($request->getContent(), true);
@@ -108,6 +136,10 @@ class ProductController extends AbstractController
     }
 
 
+    /**
+     *  Persist and flush
+     * @param $object
+     */
     function updateDatabase($object) {
         $this->entityManager->persist($object);
         $this->entityManager->flush();
