@@ -47,9 +47,7 @@ class ProductController extends AbstractController
      */
     public function index()
     {
-        return $this->render('product/index.html.twig', [
-            'controller_name' => 'ProductController',
-        ]);
+        return $this->render('product/index.html.twig');
     }
 
     /**
