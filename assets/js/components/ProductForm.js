@@ -67,17 +67,17 @@ class ProductForm extends Component {
             <Form onSubmit={this.submitForm}>
                 <FormGroup>
                     <label>Product</label>
-                    <Input type={'text'} name={'product'} placeholder='Enter the product name' className={'form-control'}/>
+                    <Input type={'text'} name={'product'} required placeholder='Enter the product name' className={'form-control'}/>
                 </FormGroup>
 
                 <FormGroup>
                     <label>Description</label>
-                    <Input type={'text'} name={'description'} placeholder='Enter product description' className={'form-control'} />
+                    <Input type={'text'} name={'description'} required placeholder='Enter product description' className={'form-control'} />
                 </FormGroup>
 
                 <FormGroup>
                     <label>Price</label>
-                    <Input type={'text'} name={'price'} placeholder='Price' className={'form-control'}/>
+                    <Input type={'text'} name={'price'} required placeholder='Price' className={'form-control'}/>
                 </FormGroup>
 
                 <FormGroup>
@@ -91,6 +91,9 @@ class ProductForm extends Component {
                 </Alert>
                 }
                 <Button type='submit' outline color="success">Add Product</Button>
+                { this.state.isLoading && <Alert color="primary">
+                    Loading ....
+                </Alert>}
 
             </Form>
         )
